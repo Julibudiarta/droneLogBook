@@ -26,7 +26,14 @@ return new class extends Migration
             $table->integer('life_span');
             $table->integer('flaight_count');
             $table->foreignId('for_drone')->constrainedTo('drone')->cascadeDelete();
-            $table->foreignId('battrei_extra_information_id')->constrainedTo('battrei_extra_information')->cascadeDelete();
+            $table->date('purchase_date');
+            $table->integer('insurable_value');
+            $table->integer('wight');
+            $table->string('firmware_version');
+            $table->string('hardware_version');
+            $table->boolean('is_loaner')->default(false);
+            $table->string('description');
+            $table->foreignId('owner_id')->constrainedTo('users')->cascadeDelete();
             $table->timestamps();
         });
     }

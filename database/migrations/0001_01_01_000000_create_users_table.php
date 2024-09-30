@@ -23,8 +23,7 @@ return new class extends Migration
             $table->string('sertif')->nullable();
             $table->string('timezone')->nullable();
             $table->string('image')->nullable();
-            $table->string('role')->defaultValue('admin');
-            $table->foreignId('organization_id')->constrainedTo('organization')->cascadeDelete();
+            $table->string('role')->default('admin');
             $table->rememberToken();
             $table->timestamps();
         });

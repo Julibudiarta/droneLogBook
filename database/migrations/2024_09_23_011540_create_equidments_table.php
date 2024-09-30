@@ -20,6 +20,13 @@ return new class extends Migration
             $table->integer('serial');
             $table->string('type');
             $table->foreignId('for_drone')->nullable()->constrained('drones')->onDelete('set null');
+            $table->foreignId('owner_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->date('purchase_date');
+            $table->integer('insurable_value');
+            $table->string('firmware_v');
+            $table->string('hardware_v');
+            $table->boolean('is_loaner')->default(false);
+            $table->string('description');
             $table->timestamps();
         });
     }
